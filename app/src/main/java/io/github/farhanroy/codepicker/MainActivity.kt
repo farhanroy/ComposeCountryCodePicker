@@ -1,6 +1,7 @@
 package io.github.farhanroy.codepicker
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
@@ -18,7 +19,9 @@ class MainActivity : ComponentActivity() {
             ComposeCountryCodePickerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    CountryCodeDialog()
+                    CountryCodeDialog(pickedCountry = {
+                        Log.d("", it.name)
+                    })
                 }
             }
         }
