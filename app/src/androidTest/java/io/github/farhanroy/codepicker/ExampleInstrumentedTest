@@ -1,0 +1,49 @@
+package io.github.farhanroy.codepicker
+
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import tools.fastlane.screengrab.Screengrab
+
+import androidx.test.rule.ActivityTestRule
+import io.github.farhanroy.codepicker.ui.theme.ComposeCountryCodePickerTheme
+import org.junit.ClassRule
+import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
+
+import tools.fastlane.screengrab.locale.LocaleTestRule
+
+class ExampleInstrumentedTest {
+
+    @get:Rule
+    val composeTestRule = createComposeRule()
+    // use createAndroidComposeRule<YourActivity>() if you need access to
+    // an activity
+
+    @Test
+    fun MyTest() {
+        // Start the app
+        composeTestRule.setContent {
+            ComposeCountryCodePickerTheme {
+                CountryCodeView()
+            }
+        }
+
+        composeTestRule.onNodeWithText("Continue").performClick()
+
+        composeTestRule.onNodeWithText("Welcome").assertIsDisplayed()
+    }
+
+    @Test
+    fun testTakeScreenshot() {
+        Screengrab.screenshot("before_button_click")
+    }
+
+    companion object {
+        @ClassRule
+        val localeTestRule = LocaleTestRule()
+    }
+}

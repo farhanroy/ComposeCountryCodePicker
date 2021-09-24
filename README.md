@@ -5,12 +5,12 @@ Country code picker for Jetpack Compose.
 In the `build.gradle` add maven central repository
 ```
 repositories {
-    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 ```
 Then, add library at `app/build.gradle` with following code
 ```
-implementation 'com.sinaukoding:cccp:1.0.0'
+implementation ' implementation 'com.github.farhanroy:ComposeCountryCodePicker:Tag'
 ```
 
 ## How to use ?
