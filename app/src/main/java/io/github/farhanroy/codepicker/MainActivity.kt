@@ -34,8 +34,10 @@ class MainActivity : ComponentActivity() {
 fun CountryCodeView() {
     Column(modifier = Modifier.padding(16.dp)) {
         var country by remember { mutableStateOf("") }
-        CountryCodeDialog {ccpCountry ->
-            country = ccpCountry.name
+        CountryCodeDialog(
+
+        ) {
+                ccpCountry -> country = ccpCountry.name
         }
         Spacer(modifier = Modifier.height(24.dp))
         Text("")

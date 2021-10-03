@@ -20,11 +20,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 
 @Composable
-fun CountryCodeDialog(pickedCountry: (CCPCountry) -> Unit) {
+fun CountryCodeDialog(
+    modifier: Modifier = Modifier,
+    pickedCountry: (CCPCountry) -> Unit
+) {
     val countryList: List<CCPCountry> = getLibraryMasterCountriesEnglish()
     val picked = remember { mutableStateOf(countryList[0]) }
     MaterialTheme {
-        Column {
+        Column(modifier = modifier) {
             val openDialog = remember { mutableStateOf(false) }
             val dialogWidth = 250.dp
             val dialogHeight = 400.dp
