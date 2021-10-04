@@ -1,7 +1,9 @@
-# Compose Country Code Picker
+# Compose Country Code 
+![Jitpack](https://jitpack.io/v/farhanroy/ComposeCountryCodePicker.svg) ![GitHub issues](https://img.shields.io/github/issues/farhanroy/ComposeCountryCodePicker)  [![GitHub forks](https://img.shields.io/github/forks/farhanroy/ComposeCountryCodePicker)](https://github.com/hbb20/CountryCodePickerProject/network) [![GitHub stars](https://img.shields.io/github/stars/farhanroy/ComposeCountryCodePicker)](https://github.com/hbb20/CountryCodePickerProject/stargazers) [![GitHub license](https://img.shields.io/github/license/farhanroy/ComposeCountryCodePicker)](https://github.com/hbb20/CountryCodePickerProject/blob/master/License.txt) 
+ 
 Country code picker for Jetpack Compose.
 
-## Install
+## How to add in your project
 In the `build.gradle` add maven central repository
 ```
 repositories {
@@ -9,8 +11,8 @@ repositories {
 }
 ```
 Then, add library at `app/build.gradle` with following code
-```
-implementation ' implementation 'com.github.farhanroy:ComposeCountryCodePicker:Tag'
+```gradle
+implementation ' implementation 'com.github farhanroy:ComposeCountryCodePicker:Tag'
 ```
 
 ## How to use ?
