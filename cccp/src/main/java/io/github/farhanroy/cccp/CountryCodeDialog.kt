@@ -13,28 +13,46 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+
+@Preview
+@Composable
+fun PreviewCountryCodeDialog() {
+    CountryCodeDialog(
+        pickedCountry = {},
+        initialCountry = getLibraryMasterCountriesEnglish().single { it.nameCode == "us" },
+    )
+}
+
 
 @Composable
 fun CountryCodeDialog(
     modifier: Modifier = Modifier,
+    flagOnly: Boolean = false,
+    initialCountry: CCPCountry = getLibraryMasterCountriesEnglish().first(),
     pickedCountry: (CCPCountry) -> Unit
 ) {
     val countryList: List<CCPCountry> = getLibraryMasterCountriesEnglish()
-    val picked = remember { mutableStateOf(countryList[0]) }
+    val picked = remember { mutableStateOf(initialCountry) }
     MaterialTheme {
         Column(modifier = modifier) {
             val openDialog = remember { mutableStateOf(false) }
             val dialogWidth = 250.dp
             val dialogHeight = 400.dp
 
-            Row(Modifier.clickable {
-                openDialog.value = true
-            }, horizontalArrangement = Arrangement.SpaceBetween) {
+            Row(
+                Modifier.clickable {
+                    openDialog.value = true
+                },
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Image(
                     painter = painterResource(
                         id = getFlagMasterResID(
@@ -42,10 +60,11 @@ fun CountryCodeDialog(
                         )
                     ), contentDescription = null
                 )
-                Text(
-                    picked.value.name,
-                    Modifier.padding(horizontal = 18.dp)
-                )
+                if (!flagOnly)
+                    Text(
+                        picked.value.name,
+                        Modifier.padding(horizontal = 18.dp)
+                    )
                 Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = null)
             }
 
@@ -88,6 +107,5 @@ fun CountryCodeDialog(
                 }
             }
         }
-
     }
 }
