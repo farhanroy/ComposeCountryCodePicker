@@ -11,7 +11,7 @@ repositories {
 }
 ```
 Then, add library at `app/build.gradle` with following code
-```gradle
+```groove
 implementation ' implementation 'com.github farhanroy:ComposeCountryCodePicker:Tag'
 ```
 
@@ -25,6 +25,14 @@ CountryCodeDialog(pickedCountry = {
 ```
 
 ## Preview
+<td>
+<tr>
+<img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/1.png" width="270" height="550">
+</tr>
+<tr>
+<img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/2.png" width="270" height="550">
+</tr>
+</td>
 
 ## License
 ```
