@@ -25,14 +25,14 @@ CountryCodeDialog(pickedCountry = {
 ```
 
 ## Preview
-<td>
 <tr>
-<img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/1.png" width="270" height="550">
+    <td>
+    <img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/1.png" width="270" height="550">
+    </td>
+    <td>
+    <img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/2.png" width="270" height="550" >
+    </td>
 </tr>
-<tr>
-<img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/2.png" width="270" height="550">
-</tr>
-</td>
 
 ## License
 ```
