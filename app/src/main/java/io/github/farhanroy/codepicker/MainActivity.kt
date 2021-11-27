@@ -13,7 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.farhanroy.cccp.CountryCodeDialog
+import io.github.farhanroy.cccp.CountryCodeField
 import io.github.farhanroy.codepicker.ui.theme.ComposeCountryCodePickerTheme
 
 class MainActivity : ComponentActivity() {
@@ -34,11 +34,7 @@ class MainActivity : ComponentActivity() {
 fun CountryCodeView() {
     Column(modifier = Modifier.padding(16.dp)) {
         var country by remember { mutableStateOf("") }
-        CountryCodeDialog(
-
-        ) {
-                ccpCountry -> country = ccpCountry.name
-        }
+        CountryCodeField(pickedCountry = {})
         Spacer(modifier = Modifier.height(24.dp))
         Text("")
     }

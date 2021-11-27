@@ -1,5 +1,4 @@
-package io.github.farhanroy.cccp
-
+package io.github.farhanroy.cccp.utils
 
 import io.github.farhanroy.cccp.R
 
@@ -14,7 +13,7 @@ data class CCPCountry(
 )
 
 fun getFlagMasterResID(CCPCountry: CCPCountry): Int {
-    return when (CCPCountry.nameCode.toLowerCase()) {
+    return when (CCPCountry.nameCode.lowercase()) {
         "ad" -> R.drawable.flag_andorra
         "ae" -> R.drawable.flag_uae
         "af" -> R.drawable.flag_afghanistan
@@ -261,8 +260,8 @@ fun getFlagMasterResID(CCPCountry: CCPCountry): Int {
     }
 }
 
-fun getFlagEmoji(CCPCountry: CCPCountry): String? {
-    return when (CCPCountry.nameCode.toLowerCase()) {
+fun getFlagEmoji(CCPCountry: CCPCountry): String {
+    return when (CCPCountry.nameCode.lowercase()) {
         "ad" -> "🇦🇩"
         "ae" -> "🇦🇪"
         "af" -> "🇦🇫"
