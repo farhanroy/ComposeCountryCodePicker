@@ -1,5 +1,6 @@
 package io.github.farhanroy.cccp.components
 
+import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -11,6 +12,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 fun SearchView(state: MutableState<TextFieldValue>) {
     TextField(
         value = state.value,
+        placeholder = { Text(text = "Search") },
         onValueChange = { value ->
             state.value = value
         },
@@ -20,8 +22,8 @@ fun SearchView(state: MutableState<TextFieldValue>) {
             leadingIconColor = Color.Black,
             trailingIconColor = Color.Black,
             backgroundColor = Color.White,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
+            focusedIndicatorColor = Color.Red,
+            unfocusedIndicatorColor = Color.Black,
             disabledIndicatorColor = Color.Transparent
         )
     )

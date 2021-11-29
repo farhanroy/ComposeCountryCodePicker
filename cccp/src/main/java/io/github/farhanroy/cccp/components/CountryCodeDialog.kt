@@ -55,7 +55,8 @@ fun CountryCodeDialog(
                         CountryItem(
                             countryText = filteredCountries[index],
                             onItemClick = { selectedCountry ->
-                                /* Add code later */
+                                dialogState.setState(false)
+                               dialogState.setCountry(selectedCountry)
                             }
                         )
                     }

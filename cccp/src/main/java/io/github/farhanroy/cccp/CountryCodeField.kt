@@ -1,6 +1,5 @@
 package io.github.farhanroy.cccp
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,25 +15,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.farhanroy.cccp.components.CountryCodeDialog
 import io.github.farhanroy.cccp.state.DialogState
-import io.github.farhanroy.cccp.utils.CCPCountry
-import io.github.farhanroy.cccp.utils.getFlagMasterResID
-import io.github.farhanroy.cccp.utils.getLibraryMasterCountriesEnglish
 
 @Composable
 fun CountryCodeField(
     modifier: Modifier = Modifier,
-    initialCountry: CCPCountry = getLibraryMasterCountriesEnglish().first(),
     dialogState: DialogState = viewModel(),
-    pickedCountry: (CCPCountry) -> Unit
+    pickedCountry: (String) -> Unit
 ) {
-    val picked = remember { mutableStateOf(initialCountry) }
     val textState = remember { mutableStateOf(TextFieldValue(""))}
+
+    pickedCountry(dialogState.getCountry())
 
     MaterialTheme {
         Column(modifier = modifier) {
@@ -45,12 +40,7 @@ fun CountryCodeField(
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
-                Image(
-                    painter = painterResource(id = getFlagMasterResID(picked.value)),
-                    contentDescription = null
-                )
-
-                Text(picked.value.name, Modifier.padding(horizontal = 18.dp))
+                Text(dialogState.getCountry(), Modifier.padding(horizontal = 18.dp))
 
                 Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = null)
             }
