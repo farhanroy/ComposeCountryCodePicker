@@ -30,7 +30,7 @@ CountryCodeDialog(pickedCountry = {
         <img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/1.png" width="270" height="550">
     </td>
     <td>
-        <img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/2.png" width="270" height="550" >
+        <img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/2.jpeg" width="270" height="550" >
     </td>
 </tr>
 
