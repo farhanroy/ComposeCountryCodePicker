@@ -1,5 +1,4 @@
-package io.github.farhanroy.cccp
-
+package io.github.farhanroy.cccp.utils
 
 import io.github.farhanroy.cccp.R
 
@@ -14,7 +13,7 @@ data class CCPCountry(
 )
 
 fun getFlagMasterResID(CCPCountry: CCPCountry): Int {
-    return when (CCPCountry.nameCode.toLowerCase()) {
+    return when (CCPCountry.nameCode.lowercase()) {
         "ad" -> R.drawable.flag_andorra
         "ae" -> R.drawable.flag_uae
         "af" -> R.drawable.flag_afghanistan
@@ -112,7 +111,6 @@ fun getFlagMasterResID(CCPCountry: CCPCountry): Int {
         "hu" -> R.drawable.flag_hungary
         "id" -> R.drawable.flag_indonesia
         "ie" -> R.drawable.flag_ireland
-        "il" -> R.drawable.flag_israel
         "im" -> R.drawable.flag_isleof_man // custom
         "is" -> R.drawable.flag_iceland
         "in" -> R.drawable.flag_india
@@ -261,8 +259,8 @@ fun getFlagMasterResID(CCPCountry: CCPCountry): Int {
     }
 }
 
-fun getFlagEmoji(CCPCountry: CCPCountry): String? {
-    return when (CCPCountry.nameCode.toLowerCase()) {
+fun getFlagEmoji(CCPCountry: CCPCountry): String {
+    return when (CCPCountry.nameCode.lowercase()) {
         "ad" -> "🇦🇩"
         "ae" -> "🇦🇪"
         "af" -> "🇦🇫"
@@ -365,7 +363,6 @@ fun getFlagEmoji(CCPCountry: CCPCountry): String? {
         "hu" -> "🇭🇺"
         "id" -> "🇮🇩"
         "ie" -> "🇮🇪"
-        "il" -> "🇮🇱"
         "im" -> "🇮🇲"
         "in" -> "🇮🇳"
         "io" -> "🇮🇴"
@@ -622,7 +619,6 @@ fun getLibraryMasterCountriesEnglish(): List<CCPCountry> {
     countries.add(CCPCountry("hu", "36", "Hungary", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("id", "62", "Indonesia", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("ie", "353", "Ireland", DEFAULT_FLAG_RES))
-    countries.add(CCPCountry("il", "972", "Israel", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("im", "44", "Isle Of Man", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("is", "354", "Iceland", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("in", "91", "India", DEFAULT_FLAG_RES))
