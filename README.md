@@ -1,16 +1,18 @@
-# Compose Country Code Picker
+# Compose Country Code 
+![Jitpack](https://jitpack.io/v/farhanroy/ComposeCountryCodePicker.svg) ![GitHub issues](https://img.shields.io/github/issues/farhanroy/ComposeCountryCodePicker)  [![GitHub forks](https://img.shields.io/github/forks/farhanroy/ComposeCountryCodePicker)](https://github.com/hbb20/CountryCodePickerProject/network) [![GitHub stars](https://img.shields.io/github/stars/farhanroy/ComposeCountryCodePicker)](https://github.com/hbb20/CountryCodePickerProject/stargazers) [![GitHub license](https://img.shields.io/github/license/farhanroy/ComposeCountryCodePicker)](https://github.com/hbb20/CountryCodePickerProject/blob/master/License.txt) 
+ 
 Country code picker for Jetpack Compose.
 
-## Install
+## How to add in your project
 In the `build.gradle` add maven central repository
 ```
 repositories {
-    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 ```
 Then, add library at `app/build.gradle` with following code
-```
-implementation 'com.sinaukoding:cccp:1.0.0'
+```groove
+implementation ' implementation 'com.github farhanroy:ComposeCountryCodePicker:Tag'
 ```
 
 ## How to use ?
@@ -23,6 +25,14 @@ CountryCodeDialog(pickedCountry = {
 ```
 
 ## Preview
+<tr>
+    <td>
+        <img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/1.png" width="270" height="550">
+    </td>
+    <td>
+        <img src="https://raw.githubusercontent.com/farhanroy/ComposeCountryCodePicker/main/art/2.jpeg" width="270" height="550" >
+    </td>
+</tr>
 
 ## License
 ```

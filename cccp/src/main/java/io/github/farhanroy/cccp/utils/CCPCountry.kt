@@ -111,6 +111,7 @@ fun getFlagMasterResID(CCPCountry: CCPCountry): Int {
         "hu" -> R.drawable.flag_hungary
         "id" -> R.drawable.flag_indonesia
         "ie" -> R.drawable.flag_ireland
+        "il" -> R.drawable.flag_israel
         "im" -> R.drawable.flag_isleof_man // custom
         "is" -> R.drawable.flag_iceland
         "in" -> R.drawable.flag_india
@@ -363,6 +364,7 @@ fun getFlagEmoji(CCPCountry: CCPCountry): String {
         "hu" -> "🇭🇺"
         "id" -> "🇮🇩"
         "ie" -> "🇮🇪"
+        "il" -> "🇮🇱"
         "im" -> "🇮🇲"
         "in" -> "🇮🇳"
         "io" -> "🇮🇴"
@@ -619,6 +621,7 @@ fun getLibraryMasterCountriesEnglish(): List<CCPCountry> {
     countries.add(CCPCountry("hu", "36", "Hungary", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("id", "62", "Indonesia", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("ie", "353", "Ireland", DEFAULT_FLAG_RES))
+    countries.add(CCPCountry("il", "972", "Israel", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("im", "44", "Isle Of Man", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("is", "354", "Iceland", DEFAULT_FLAG_RES))
     countries.add(CCPCountry("in", "91", "India", DEFAULT_FLAG_RES))

@@ -17,6 +17,15 @@ fun CountryItem(country: CCPCountry, onItemClick: (CCPCountry) -> Unit) {
     Row(
         modifier = Modifier
             .clickable(onClick = { onItemClick(country) })
+=======
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+@Composable
+fun CountryItem(countryText: String, onItemClick: (String) -> Unit) {
+    Row(
+        modifier = Modifier
+            .clickable(onClick = { onItemClick(countryText) })
             .height(57.dp)
             .fillMaxWidth()
             .padding(PaddingValues(8.dp, 16.dp))

@@ -1,6 +1,5 @@
 package io.github.farhanroy.cccp
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,7 +15,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -31,6 +29,7 @@ fun CountryCodeField(
     dialogState: DialogState = viewModel(),
     titleDefault: String = "Select Country",
     pickedCountry: (CCPCountry) -> Unit
+    pickedCountry: (String) -> Unit
 ) {
     val textState = remember { mutableStateOf(TextFieldValue(""))}
 
@@ -56,6 +55,7 @@ fun CountryCodeField(
                 }
                 Text(if (dialogState.getCountry().name == "null") titleDefault else dialogState.getCountry().name, Modifier.padding(start = 8.dp, end = 18.dp))
 
+                Text(dialogState.getCountry(), Modifier.padding(horizontal = 18.dp))
 
                 Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = null)
             }
