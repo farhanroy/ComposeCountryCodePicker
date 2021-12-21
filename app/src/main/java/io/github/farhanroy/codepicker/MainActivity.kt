@@ -35,7 +35,6 @@ fun CountryCodeView() {
     Column(modifier = Modifier.padding(16.dp)) {
         var country by remember { mutableStateOf("") }
         CountryCodeField(pickedCountry = {
-
         })
         Spacer(modifier = Modifier.height(24.dp))
         Text("")

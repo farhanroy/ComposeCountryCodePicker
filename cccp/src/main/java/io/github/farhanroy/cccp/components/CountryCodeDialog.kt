@@ -12,6 +12,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.farhanroy.cccp.state.DialogState
+import io.github.farhanroy.cccp.utils.CCPCountry
+import io.github.farhanroy.cccp.utils.getLibraryMasterCountriesEnglish
+
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -21,8 +24,8 @@ fun CountryCodeDialog(
     state: MutableState<TextFieldValue>,
     dialogState: DialogState = viewModel()
 ) {
-    val countries = getListOfCountries()
-    var filteredCountries: List<String>
+    val countries = getLibraryMasterCountriesEnglish()
+    var filteredCountries: List<CCPCountry>
 
     if (dialogState.getState()) {
         Dialog(onDismissRequest = { dialogState.setState(false) }) {
@@ -37,9 +40,9 @@ fun CountryCodeDialog(
                     filteredCountries = if (searchedText.isEmpty()) {
                         countries
                     } else {
-                        val resultList = ArrayList<String>()
+                        val resultList = ArrayList<CCPCountry>()
                         for (country in countries) {
-                            if (country.lowercase(Locale.getDefault())
+                            if (country.name.lowercase(Locale.getDefault())
                                     .contains(searchedText.lowercase(Locale.getDefault()))
                             ) {
                                 resultList.add(country)
@@ -53,12 +56,11 @@ fun CountryCodeDialog(
                     }
                     items(filteredCountries.size) { index ->
                         CountryItem(
-                            countryText = filteredCountries[index],
-                            onItemClick = { selectedCountry ->
-                                dialogState.setState(false)
-                               dialogState.setCountry(selectedCountry)
-                            }
-                        )
+                            country = filteredCountries[index]
+                        ) { selectedCountry ->
+                            dialogState.setState(false)
+                            dialogState.setCountry(selectedCountry)
+                        }
                     }
                 }
             }
@@ -83,4 +85,3 @@ fun getListOfCountries(): ArrayList<String> {
     }
     return countryListWithEmojis
 }
-
