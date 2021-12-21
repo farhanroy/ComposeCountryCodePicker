@@ -7,9 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import io.github.farhanroy.cccp.utils.CCPCountry
 
 @Composable
-fun CountryItem(countryText: String, onItemClick: (String) -> Unit) {
+fun CountryItem(countryText: CCPCountry, onItemClick: (CCPCountry) -> Unit) {
     Row(
         modifier = Modifier
             .clickable(onClick = { onItemClick(countryText) })
@@ -17,6 +18,6 @@ fun CountryItem(countryText: String, onItemClick: (String) -> Unit) {
             .fillMaxWidth()
             .padding(PaddingValues(8.dp, 16.dp))
     ) {
-        Text(text = countryText, fontSize = 18.sp)
+        Text(text = countryText.name, fontSize = 18.sp)
     }
 }

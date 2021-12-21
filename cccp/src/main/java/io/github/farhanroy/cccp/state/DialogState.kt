@@ -10,7 +10,8 @@ import io.github.farhanroy.cccp.utils.DEFAULT_FLAG_RES
 class DialogState: ViewModel() {
     private var isOpen: Boolean by mutableStateOf(false)
 
-    private var selectedCountry by mutableStateOf("")
+    //must have default CCPCountry
+    private var selectedCountry by mutableStateOf(CCPCountry("ad", "376", "Andorra", DEFAULT_FLAG_RES))
 
     fun setState(state: Boolean) {
         isOpen = state
@@ -18,9 +19,9 @@ class DialogState: ViewModel() {
 
     fun getState(): Boolean = isOpen
 
-    fun setCountry(value: String) {
+    fun setCountry(value: CCPCountry) {
         selectedCountry = value
     }
 
-    fun getCountry(): String = selectedCountry
+    fun getCountry(): CCPCountry = selectedCountry
 }
