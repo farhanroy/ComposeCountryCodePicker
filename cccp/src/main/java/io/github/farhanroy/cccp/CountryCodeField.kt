@@ -20,15 +20,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.farhanroy.cccp.components.CountryCodeDialog
 import io.github.farhanroy.cccp.state.DialogState
-import io.github.farhanroy.cccp.utils.CCPCountry
 import io.github.farhanroy.cccp.utils.getFlagMasterResID
 
 @Composable
 fun CountryCodeField(
     modifier: Modifier = Modifier,
     dialogState: DialogState = viewModel(),
-    titleDefault: String = "Select Country",
-    pickedCountry: (CCPCountry) -> Unit
     pickedCountry: (String) -> Unit
 ) {
     val textState = remember { mutableStateOf(TextFieldValue(""))}
@@ -43,17 +40,6 @@ fun CountryCodeField(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-
-                if (dialogState.getCountry().name != "null") {
-                    Image(
-                        painter = painterResource(
-                            id = getFlagMasterResID(
-                                dialogState.getCountry()
-                            )
-                        ), contentDescription = null,
-                    )
-                }
-                Text(if (dialogState.getCountry().name == "null") titleDefault else dialogState.getCountry().name, Modifier.padding(start = 8.dp, end = 18.dp))
 
                 Text(dialogState.getCountry(), Modifier.padding(horizontal = 18.dp))
 

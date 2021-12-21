@@ -34,8 +34,7 @@ class MainActivity : ComponentActivity() {
 fun CountryCodeView() {
     Column(modifier = Modifier.padding(16.dp)) {
         var country by remember { mutableStateOf("") }
-        CountryCodeField(pickedCountry = {
-        })
+        CountryCodeField {}
         Spacer(modifier = Modifier.height(24.dp))
         Text("")
     }

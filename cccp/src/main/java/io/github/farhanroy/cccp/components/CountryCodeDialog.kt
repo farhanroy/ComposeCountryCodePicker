@@ -1,7 +1,9 @@
 package io.github.farhanroy.cccp.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -12,20 +14,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
 import io.github.farhanroy.cccp.state.DialogState
-import io.github.farhanroy.cccp.utils.CCPCountry
-import io.github.farhanroy.cccp.utils.getLibraryMasterCountriesEnglish
-
 import java.util.*
 import kotlin.collections.ArrayList
-
 
 @Composable
 fun CountryCodeDialog(
     state: MutableState<TextFieldValue>,
     dialogState: DialogState = viewModel()
 ) {
-    val countries = getLibraryMasterCountriesEnglish()
-    var filteredCountries: List<CCPCountry>
+    val countries = getListOfCountries()
+    var filteredCountries: List<String>
 
     if (dialogState.getState()) {
         Dialog(onDismissRequest = { dialogState.setState(false) }) {
@@ -40,9 +38,9 @@ fun CountryCodeDialog(
                     filteredCountries = if (searchedText.isEmpty()) {
                         countries
                     } else {
-                        val resultList = ArrayList<CCPCountry>()
+                        val resultList = ArrayList<String>()
                         for (country in countries) {
-                            if (country.name.lowercase(Locale.getDefault())
+                            if (country.lowercase(Locale.getDefault())
                                     .contains(searchedText.lowercase(Locale.getDefault()))
                             ) {
                                 resultList.add(country)
@@ -56,11 +54,12 @@ fun CountryCodeDialog(
                     }
                     items(filteredCountries.size) { index ->
                         CountryItem(
-                            country = filteredCountries[index]
-                        ) { selectedCountry ->
-                            dialogState.setState(false)
-                            dialogState.setCountry(selectedCountry)
-                        }
+                            countryText = filteredCountries[index],
+                            onItemClick = { selectedCountry ->
+                                dialogState.setState(false)
+                                dialogState.setCountry(selectedCountry)
+                            }
+                        )
                     }
                 }
             }
